@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form id="formElement">
+    </form>
+    <div id="buttonsDiv">
+    </div>
+
+    <script>
+        class NumButton {
+            id;
+            value;
+            event;
+            constructor(id, event, value) {
+                this.id = id
+                this.event = event  
+                this.value = value
+            }
+            btnClick(){
+        console.log(this.value);
+    }
+        }
+// יצירת מערך של אובייקטים בעזרת לולאה
+        let butArray = [];
+        for (let i = 1; i < 11; i++) {           
+        const buttonObj = new NumButton (`btn${i}`,()=>{},i)
+        butArray.push(buttonObj)            
+        }
+        // יצירת כפתורים בעזרת המערך
+        butArray.forEach(butArrayItem => {
+            buttonsDiv.innerHTML+=`<button id="${butArrayItem.id}" value="${butArrayItem.value}">${butArrayItem.value}</button>`
+       });
+       butArray.forEach(butArrayItem => {
+        document.getElementById(butArrayItem.id).addEventListener("click",()=>{butArrayItem.btnClick()})
+       })
+       
+
+   
+
+        class Person {
+            firstName;
+            lastName;
+            email;
+            phone;
+            age;
+            constructor(firstName = "", lastName = "", email = "", phone = "", age = "", adress = "") {
+                this.firstName = firstName
+                this.lastName = lastName
+                this.email = email
+                this.phone = phone
+                this.age = age
+                this.address = adress
+
+            }
+
+
+        }
+        let person1 = new Person()
+        // for (const personKey in person1) {
+        //     formElement.innerHTML += `${personKey}:<br><input type="text" name="${personKey}" id="${personKey}Id"><br>`
+        // } formElement.innerHTML += '<button onclick="keepInput()">submit</button>' Create Input option I 
+
+
+
+
+        // function keepInput() {
+        //     person1.firstName = firstNameId.value
+        //     person1.lastName = lastNameId.value
+        //     person1.email = emailId.value
+        //     person1.adress = addressId.value
+        //     console.log(person1);
+        // }
+
+        // class Fields {
+        //     title;
+        //     type;
+        //     id;
+        //     name;
+
+        //     constructor(title = "", type = "", id = "", name = "") {
+        //         this.title = title
+        //         this.type = type
+        //         this.id = id
+        //         this.name = name
+        //     }
+        // }
+        //  //    Create Input option II
+
+        // let fieldsFirstName = new Fields("First name", "text", "firstNameId", "firstName")
+        // let fieldsLasttName = new Fields("Last name", "text", "lastNameId", "lastName")
+        // let fieldsEmail = new Fields("Email", "email", "emailId", "lastName")
+        // let fieldsAge = new Fields("Age", "number", "ageId", "age")
+
+        //  let fields = [fieldsFirstName,fieldsLasttName,fieldsEmail,fieldsAge];
+        //  fields.forEach(fieldItem=>{
+        //      formElement.innerHTML+=`<label id="${fieldItem.name}LabelId" for="${fieldItem.name}">${fieldItem.title}</label><br><input type="${fieldItem.type}" name="${fieldItem.name}"><br>`
+        //  })
+
+        // fields.forEach((feildItem) => {
+        //     formElement.innerHTML += `${feildItem}c:<br><input type="text" name="${feildItem}" id="${feildItem}Id"><br>`
+        // });
+
+    </script>
+</body>
+
+</html>

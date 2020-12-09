@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Class with 3 properties - 2 text and 1 interger
+        class RandomObj{
+            min;
+            max;
+            firstNum;
+            constructor(prop_1="",prop_2="",num1=null){
+            this.min=`Minimum point is ${prop_1}`
+            this.max=`maximum point is ${prop_2}`
+            this.firstNum=num1
+        }
+        // static function to generate a random number based on a given Object
+        static random(someObj){
+            return Math.floor(Math.random() * someObj.firstNum);
+        } 
+        }
+        // create new object usuing the class RandomObj and prove the log the result
+        let randomNum = new RandomObj('0','999',10)
+        console.log(randomNum.min);
+        console.log(randomNum.max);
+        console.log(RandomObj.random(randomNum)); 
+    </script>
+</body>
+</html>

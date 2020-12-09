@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class Person {
+            name;
+            age;
+            hight;
+            constructor(name, age, hight) {
+                this.name = name;
+                this.age = age;
+                this.hight = hight;
+            }
+            talk() {
+                console.log(`hi im ${this.name} may age is ${this.age} and my hight is ${this.hight}`);
+            }
+        }
+        class Student extends Person {
+            grade;
+            school;
+            constructor(grade, school, name, age, hight) {
+                super(name, age, hight)
+                this.grade = grade;
+                this.school = school;
+            }
+            speak() {
+                super.talk()
+                console.log(`also, im in ${this.grade} and going to ${this.school}`)
+            }
+        }
+
+    
+        class Teacher extends Person {
+            subject;
+            salary;
+            constructor(subject,salary,name, age, hight){
+               super(name, age, hight)
+               this.subject = subject 
+               this.salary = salary 
+            }
+            speak(){
+                super.talk()
+                console.log(`also, I teach ${this.subject} and I make ${this.salary} a month`)
+            }
+        }
+
+
+        const stu1 = new Student('7th-grade', "Kaplan", "Yossi", 16, 160);
+        const teacher1 = new Teacher('Science', "Malantalfin", "Eric", 56, 170);
+        stu1.speak()
+        teacher1.speak()
+
+
+    </script>
+</body>
+
+</html>

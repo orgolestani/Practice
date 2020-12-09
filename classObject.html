@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        table, td, tr{
+            border: black 1px solid;
+            box-sizing: border-box;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div action="">
+        <div id="formDiv"></div>
+
+    </div>
+    
+    <script>
+
+        // משתנים גלובלים
+        
+        let formDiv = document.getElementById("formDiv")
+        window.onload = () => {
+            let formArray = ["firstName", "lastName", "email", 'phone', 'age']
+            createInput(formArray)
+            let firstNameInput = document.getElementById("firstNameInput")
+            //    firstNameInput.addEventListener("change", checkFirstName)
+        }
+
+        // פונקציה ליצירת קלט
+        function createInput(elementX) {
+            for (let i = 0; i < elementX.length; i++) {
+                formDiv.innerHTML += `<br><label id=${elementX[i]}>${elementX[i]}<label/><br>
+                <input id=${elementX[i]}Input type="text"><br><span id=${elementX[i]}Span><span/>`
+
+            } formDiv.innerHTML += `<button onclick="createClassTable()">submit</button>`
+        }
+
+        //  function checkFirstName(){
+        //     if (document.getElementById("firstNameInput").value!="or") {
+        //         document.getElementById("firstNameSpan").innerHTML="You are not allowed"
+        //         return false
+        //     }
+        //     document.getElementById("firstNameSpan").innerHTML="Hello Or"
+        //     return true
+        // }
+        class Person {
+            firstName;
+            lastName;
+            email;
+            phone;
+            age;
+            constructor(firstName, lastName, email, phone, age) {
+                this.firstName = firstName
+                this.lastName = lastName
+                this.email = email
+                this.phone = phone
+                this.age = age}
+
+                get fullName(){
+                    return this.createFullName()
+                }
+                createFullName(){
+                    return `mr. ${this.firstName} ${this.lastName}`
+                
+                }
+            }
+        
+
+
+        function createClassTable() {
+            let person1 = new Person(firstNameInput.value, lastNameInput.value, emailInput.value, phoneInput.value, ageInput.value)
+            formDiv.innerHTML+='<table><tr id="keysTr"></tr><tr id="valuesTr"></tr></table>'
+            for (const key in person1) {    
+              keysTr.innerHTML+=`<td>${key}</td>`
+              valuesTr.innerHTML+=`<td>${person1[key]}</td>`
+
+
+                }
+        console.log(person1.fullName);
+            }
+
+    </script>
+</body>
+
+</html>

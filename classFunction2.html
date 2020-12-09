@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="formElement"></div>
+    <span id="alertHere"></span>
+    <script>
+        // Class required to create input using for-in loop
+        class Person {
+            name;
+            email;
+            userName;
+            password;
+            constructor(name = "", email = "", userName = "", password = "") {
+                this.name = name
+                this.email = email
+                this.userName = userName
+                this.password = password
+            }
+        } // hard coded object to compare our input to 
+        authorizedUser = new Person('David','David@mail.com','DavidGold','david123')
+           
+        // creating input, newUser will be created onclick by the input provided
+        for (const personKey in authorizedUser) {
+            formElement.innerHTML += `${personKey}:<br><input type="text" name="${personKey}" id="${personKey}Id"><br>`
+        } formElement.innerHTML += '<button onclick="checkUser(authorizedUser)">submit</button>'
+
+       
+
+        let newUser = new Person()
+
+        function checkUser(allowedUser) {
+            newUser.name = nameId.value
+            newUser.email = emailId.value
+            newUser.userName = userNameId.value
+            newUser.password = passwordId.value
+            // if statment to compare 2 objects
+            if(JSON.stringify(newUser) === JSON.stringify(allowedUser) ){
+                alertHere.innerHTML="You may enter the page"
+            }else{
+                alertHere.innerHTML="You may NOT enter the page"
+            }
+        }
+
+        // option2 to compare the objects
+        function checkUser2(allowedUser) {
+            newUser.name = nameId.value
+            newUser.email = emailId.value
+            newUser.userName = userNameId.value
+            newUser.password = passwordId.value
+            // if statment to compare 2 objects
+            if(Object.is(newUser,allowedUser)) {
+                alertHere.innerHTML="You may enter the page"
+            }else{
+                alertHere.innerHTML="You may NOT enter the page"
+            }
+        }
+    </script>
+</body>
+
+</html>

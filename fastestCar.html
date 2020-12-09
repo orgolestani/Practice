@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const cars = [{ name: 'c1', speed: 70 }, { name: 'c2', speed: 20 },
+        { name: 'c3', speed: 60 }, { name: 'c4', speed: 3000 }, { name: 'c5', speed: 670 }];
+        var fastestCar = null;
+        function checkSpeed() {
+            let speedCar = 0
+            speedCar = cars[0].speed
+            for (let i = 0; i < cars.length; i++) {
+                if (cars[i].speed > speedCar) {
+                    speedCar = cars[i].speed
+                    fastestCar = cars[i].name
+                }
+
+            }
+            return fastestCar
+        }
+
+        console.log(checkSpeed())
+
+    </script>
+</body>
+
+</html>```````  `1      `
